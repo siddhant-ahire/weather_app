@@ -3,7 +3,7 @@ const key='yfyKEA11Aj3Ru9lEn9GDVOEoIkYViDOH';
 //get city weather
 
 const getWeather = async(code)=>{
-    const base='http://dataservice.accuweather.com/currentconditions/v1/';
+    const base='https://dataservice.accuweather.com/currentconditions/v1/';
     const query=`${code}?apikey=${key}`;
     const response =await fetch(base+query);
     const data = await response.json();
@@ -12,7 +12,7 @@ const getWeather = async(code)=>{
 
 //get City information
 const getCity = async (city)=>{
-    const base='http://dataservice.accuweather.com/locations/v1/cities/search';
+    const base='https://dataservice.accuweather.com/locations/v1/cities/search';
     const query=`?apikey=${key}&q=${city}`;
     const response =await fetch(base+query);
     const data = await response.json();
@@ -30,11 +30,11 @@ class Forecast{
     constructor(){
 
         this.key='yfyKEA11Aj3Ru9lEn9GDVOEoIkYViDOH';
-        this.cityURI='http://dataservice.accuweather.com/locations/v1/cities/search';
-        this.weatherURI='http://dataservice.accuweather.com/currentconditions/v1/';
+        this.cityURI='https://dataservice.accuweather.com/locations/v1/cities/search';
+        this.weatherURI='https://dataservice.accuweather.com/currentconditions/v1/';
     }
     getCity = async (city)=>{
-        // const base='http://dataservice.accuweather.com/locations/v1/cities/search';
+        // const base='https://dataservice.accuweather.com/locations/v1/cities/search';
         const query=`?apikey=${this.key}&q=${city}`;
         const response =await fetch(this.cityURI+query);
         const data = await response.json();
@@ -42,7 +42,7 @@ class Forecast{
         return data[0];
     }
     getWeather = async(code)=>{
-        // const base='http://dataservice.accuweather.com/currentconditions/v1/';
+        // const base='https://dataservice.accuweather.com/currentconditions/v1/';
         const query=`${code}?apikey=${this.key}`;
         const response =await fetch(this.weatherURI+query);
         const data = await response.json();
